@@ -1,0 +1,10 @@
+services:
+  ner_rag_bot:
+    build: .
+    environment:
+      - ${OPENAI_API_KEY}
+      - ${TELEGRAM_BOT}
+      - PYTHONPATH=/app
+    volumes:
+      - .:/app
+    restart: always

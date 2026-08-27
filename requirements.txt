@@ -1,0 +1,12 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+transformers
+langchain
+langchain-openai
+langchain-community
+faiss-cpu
+python-telegram-bot
+fastmcp
+python-dotenv
+fastapi
+uvicorn
