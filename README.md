@@ -1,6 +1,6 @@
 AI Entity Analyst
 Українська версія
-Привіт! Це проєкт для розпізнавання сутностей (людей, організацій, локацій) у тексті та пошуку відповідей за допомогою RAG-архітектури. Усередині все зв'язано через FastMCP як шар інструментів, а користуватися системою можна або через Telegram-бота, або через веб-інтерфейс.
+Привіт! Це проєкт для розпізнавання сутностей (людей, організацій) у тексті та пошуку відповідей за допомогою RAG-архітектури. Усередині все зв'язано через FastMCP як шар інструментів, а користуватися системою можна або через Telegram-бота, або через веб-інтерфейс.
 
 Що тут є і як це працює
 Виділення сутностей (NER): Система шукає в тексті персон (PER), організації (ORG) та локації (LOC) для української та англійської мов на базі моделей BERT.
@@ -34,8 +34,9 @@ Bash
 cd react_project/frontend
 npm install
 npm run dev
+
 English Version
-Hey! This project is built for extracting named entities (people, organizations, locations) from raw text and answering context-aware queries using a RAG pipeline. Everything is hooked up through FastMCP as a middleware tool layer, and you can interact with it either via a Telegram bot or a clean React web interface.
+Hey! This project is built for extracting named entities (people, organizations) from raw text and answering context-aware queries using a RAG pipeline. Everything is hooked up through FastMCP as a middleware tool layer, and you can interact with it either via a Telegram bot or a clean React web interface.
 
 What it does
 Named Entity Recognition (NER): Extracts PER, ORG, and LOC entities from Ukrainian and English text using BERT-based models.

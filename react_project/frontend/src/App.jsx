@@ -3,39 +3,8 @@ import { Send, Bot } from 'lucide-react';
 
 export default function App() {
   const [messages, setMessages] = useState([
-    {
-      id: 1,
-      sender: 'user',
-      text: 'Знайди значення: Павло працює на Кібернетики в Києві. Він любить Марію, вона в Харкові працює в LittleLab'
-    },
-    {
-      id: 2,
-      sender: 'bot',
-      text: `У вашому тексті були знайдені такі сутності:
-1. **Організації**:
-   - Кібернетики
-   - LittleLab
-2. **Локації**:
-   - Київ
-   - Харків
-
-Якщо вам потрібно більше інформації або аналізу, дайте знати!`
-    },
-    {
-      id: 3,
-      sender: 'user',
-      text: 'Find entities: Elon Musk works at Tesla in Berlin while trying to masturbate in Night City, and The Core loved it'
-    },
-    {
-      id: 4,
-      sender: 'bot',
-      text: `Знайдені сутності:
-- Персона: Elon Musk
-- Організації: Tesla, The Core
-- Локація: Berlin
-- Інше: Night City`
-    }
-  ]);
+  { id: 1, sender: 'bot', text: 'Вітаю! Я AI Entity Analyst. Чим можу допомогти?' }
+]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const messagesEndRef = useRef(null);
@@ -75,7 +44,7 @@ export default function App() {
       {
         id: Date.now() + 1,
         sender: 'bot',
-        text: data.response
+        text: data.response || data.data || "Порожня відповідь від сервера"
       }
     ]);
   } catch (err) {

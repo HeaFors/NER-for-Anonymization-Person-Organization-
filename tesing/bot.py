@@ -1,11 +1,11 @@
 import os
 import logging
-from dotenv import load_dotenv  # <-- 1. Додали імпорт
+from dotenv import load_dotenv
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters, ContextTypes
 from mcp_server import run_agent_tool
 
-load_dotenv()  # <-- 2. Автоматично зчитує файл .env
+load_dotenv()
 
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 

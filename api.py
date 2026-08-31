@@ -1,15 +1,14 @@
+from typing import Optional
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-# Імпортуємо вашого агента або MCP інструмент
-from tesing.agent import process_query # або з mcp_server імпортуйте run_agent_tool
+from tesing.agent import process_query
 
-app = FastAPI()
+app = FastAPI(title="NER & RAG AI Analyst API")
 
-# ОБОВ'ЯЗКОВО: дозволяємо React-сайту робити запити до API
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # дозволяє запити з будь-якого фронтенду
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -18,8 +17,22 @@ app.add_middleware(
 class QueryRequest(BaseModel):
     query: str
 
-@app.post("/api/analyze")
+class QueryResponse(BaseModel):
+    response: str
+    success: bool = True
+    error: Optional[str] = None
+
+@app.post("/api/analyze", response_model=QueryResponse)
 async def analyze(request: QueryRequest):
-    # Передаємо запит з сайту в агента
-    response_text = process_query(request.query)
-    return {"response": response_text}
+    try:
+        response_text = process_query(request.query)
+        return QueryResponse(
+            response=response_text,
+            success=True
+        )
+    except Exception as e:
+        return QueryResponse(
+            response="Помилка під час обробки запиту.",
+            success=False,
+            error=str(e)
+        )

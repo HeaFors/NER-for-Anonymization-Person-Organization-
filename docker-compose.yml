@@ -2,8 +2,8 @@ services:
   ner_rag_bot:
     build: .
     environment:
-      - ${OPENAI_API_KEY}
-      - ${TELEGRAM_BOT}
+      - OPENAI_API_KEY={"OPENAI_API_KEY"}
+      - TELEGRAM_BOT_TOKEN={"TELEGRAM_BOT_TOKEN"}
       - PYTHONPATH=/app
     volumes:
       - .:/app
